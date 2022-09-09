@@ -17,55 +17,57 @@
 </head>
 
 <body>
+    <div>
+        <div class="container">
+            <div class="weather-app">
+                <form class="search-form" id="search-form">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="search" placeholder="Search for a city..." autofocus="on" autocomplete="off"
+                                id="city-input" class="form-control shadow-sm" />
+                        </div>
+                        <div class="col-3">
+                            <input type="submit" value="Search 🔎" class="form-control btn btn-primary w-100" />
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-success w-100" id="current-location-button">Current 📍</button>
 
-    <div class="container">
-        <div class="weather-app">
-            <form class="search-form" id="search-form">
-                <div class="row">
-                    <div class="col-6">
-                        <input type="search" placeholder="Search for a city..." autofocus="on" autocomplete="off"
-                            id="city-input" class="form-control shadow-sm" />
-                    </div>
-                    <div class="col-3">
-                        <input type="submit" value="Search 🔎" class="form-control btn btn-primary w-100" />
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-success w-100" id="current-location-button">Current 📍</button>
+                        </div>
 
-                    </div>
-
-            </form>
-            </br>
-        </div>
-        <h1 id="city"></h1>
-        <ul>
-            <li id="current-temp">temperature</li>
-            <li id="sky">sunny</li>
-        </ul>
-
-        <div class="row">
-            <div class="col-6">
-                <span class="temperature" id="temperature"></span>
-                <span class="units">
-                    <a href="#" id="celsius-link">°C</a>
-                    <a href="#" id="fahrenheit-link">°F</a>
-                </span>
+                </form>
+                </br>
             </div>
+            <h1 id="city"></h1>
+            <ul>
+                <li id="current-temp">temperature</li>
+                <li id="sky">sunny</li>
+            </ul>
 
-            <div class="col-3">
-                <ul>
+            <div class="row">
+                <div class="col-6">
+                    <span class="temperature" id="temperature"></span>
+                    <span class="units">
+                        <a href="#" id="celsius-link">°C</a>
+                        <a href="#" id="fahrenheit-link">°F</a>
+                    </span>
+                </div>
 
-                    <li>Humidity:<span id="humidity"></span>%</li>
-                    <li>Wind:<span id="wind"></span>km/h</li>
-                </ul>
+                <div class="col-3">
+                    <ul>
+
+                        <li>Humidity:<span id="humidity"></span>%</li>
+                        <li>Wind:<span id="wind"></span>km/h</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <footer>This project was coded by Michelle Harley and is <a href="https://github.com/">open-souced with GitHub</a>
-        and <a
-            href="https://www.netlify.com/?utm_source=google&utm_medium=paid_search&utm_campaign=12755510784&adgroup=118788138897&utm_term=netlify&utm_content=kwd-371509120223&creative=514583565825&device=c&matchtype=e&location=1011742&gclid=Cj0KCQjwyOuYBhCGARIsAIdGQRONiAPAy0snPqTGmE4sV28bv09LTsfT2XpIt08A6Wa1eugZgEMo0A0aAvhSEALw_wcB">hosted
-            on Netlify</a> </footer>
-    <script src="src/index.js"></script>
+        <footer>This project was coded by Michelle Harley and is <a href="https://github.com/">open-souced with
+                GitHub</a>
+            and <a
+                href="https://www.netlify.com/?utm_source=google&utm_medium=paid_search&utm_campaign=12755510784&adgroup=118788138897&utm_term=netlify&utm_content=kwd-371509120223&creative=514583565825&device=c&matchtype=e&location=1011742&gclid=Cj0KCQjwyOuYBhCGARIsAIdGQRONiAPAy0snPqTGmE4sV28bv09LTsfT2XpIt08A6Wa1eugZgEMo0A0aAvhSEALw_wcB">hosted
+                on Netlify</a> </footer>
+        <script src="src/index.js"></script>
+
 </body>
 
 </html>

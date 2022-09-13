@@ -89,8 +89,8 @@ console.log("temperature");
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
-let emojiElement = document.querySelector("#emoji");
-emojiElement.setAttribute(
+let iconElement = document.querySelector("#emoji");
+iconElement.setAttribute(
   "src",
   `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
 );

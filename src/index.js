@@ -89,4 +89,7 @@ console.log("temperature");
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
+let emojiElement = document.querySelector("#emoji");
+emojiElement.setAttribute("src", `http://openweathermap.org/img/wn/10d@2x.png`);
+
 searchCity("New York");

@@ -90,7 +90,10 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 let iconElement = document.querySelector("#icon");
-iconElement.setAttribute("src", `http://openweathermap.org/img/wn/10d@2x.png`);
+iconElement.setAttribute(
+  "src",
+  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 
 searchCity("New York");

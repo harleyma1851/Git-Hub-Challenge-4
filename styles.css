@@ -24,3 +24,9 @@ li {
     font-size: 25px;
 
 }
+
+.emoji {
+    display: block;
+    margin: 0 auto;
+    size: 25 px;
+}

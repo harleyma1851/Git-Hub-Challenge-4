@@ -94,6 +94,6 @@ iconElement.setAttribute(
   "src",
   `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
 );
-console.log("icon");
+iconElement.setAttribute("alt", response.data.weather[0].description);
 
 searchCity("New York");

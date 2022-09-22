@@ -23,10 +23,10 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 function displayWeatherCondition(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   console.log(response.data);
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.main.humidity
@@ -35,6 +35,14 @@ function displayWeatherCondition(response) {
     response.data.wind.speed
   );
   document.querySelector("#sky").innerHTML = response.data.weather[0].main;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -59,41 +67,35 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+let dateElement = document.querySelector("#current-temp");
+let currentTime = new Date();
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+dateElement.innerHTML = formatDate(currentTime);
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = response.data.main.temp;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = response.data.main.temp;
-  console.log("temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-let dateElement = document.querySelector("#current-temp");
-let currentTime = new Date();
+
+let celsiusTemperature = null;
+
 let searchForm = document.querySelector("#search-form");
-
 searchForm.addEventListener("submit", handleSubmit);
-
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
-dateElement.innerHTML = formatDate(currentTime);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
-
-let iconElement = document.querySelector("#icon");
-iconElement.setAttribute(
-  "src",
-  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-);
-iconElement.setAttribute("alt", response.data.weather[0].description);
 
 searchCity("New York");

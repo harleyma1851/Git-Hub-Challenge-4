@@ -1,32 +1,52 @@
-.container {
+.weather-app {
+    max-width: 500px;
     display: block;
     margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+
+
 }
 
-body {
-    font-family: "DotGothic16", sans-serif;
-    font-family: "Uchen", serif;
+.form-control {
+    display: block;
+    margin: 30px auto;
+
+
 }
 
-.btn-info {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    color: rgb(241, 231, 231);
+
+
+.btn {
+
+    display: block;
+    margin: 30px auto;
     box-shadow: 5px 5px 10px #bebaba;
     transition: ease-in-out 200ms;
+    width: 100px;
+    white-space: nowrap;
 }
 
-li {
+.date-icon {
     list-style: none;
+    text-align: left;
+}
+
+.humidity-wind {
+    list-style: none;
+    text-align: center;
 }
 
 .temperature {
-    font-size: 25px;
+    font-size: 55px;
 
 }
 
-.emoji {
+.float-right {
     display: block;
     margin: 0 auto;
-    size: 25 px;
+
+}
+
+footer {
+    font-size: 12px;
 }

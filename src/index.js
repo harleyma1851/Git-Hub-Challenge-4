@@ -67,7 +67,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let dateElement = document.querySelector("#current-temp");
+let dateElement = document.querySelector("#current-time");
 let currentTime = new Date();
 
 let currentLocationButton = document.querySelector("#current-location-button");

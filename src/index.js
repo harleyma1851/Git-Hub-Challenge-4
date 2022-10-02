@@ -25,6 +25,8 @@ function formatDate(date) {
 function displayWeatherCondition(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
+
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemperature);
   console.log(response.data);
@@ -41,13 +43,10 @@ function displayWeatherCondition(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
-  celsiusTemperature = response.data.main.temp;
 }
 
 function searchCity(city) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayWeatherCondition);

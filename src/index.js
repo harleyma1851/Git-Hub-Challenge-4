@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(currentDate) {
+  let date = new Date(currentDate);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -8,7 +9,6 @@ function formatDate(date) {
     minutes = `0${minutes}`;
   }
 
-  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -18,7 +18,7 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let day = days[dayIndex];
+  let day = days[date.getDay()];
 
   return `${day} ${hours}:${minutes}`;
 }
@@ -27,6 +27,14 @@ function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
 
   celsiusTemperature = response.data.main.temp;
+  let dateElement = document.querySelector("#current-time");
+  let currentTime = new Date();
+
+  let currentLocationButton = document.querySelector(
+    "#current-location-button"
+  );
+  currentLocationButton.addEventListener("click", getCurrentLocation);
+  dateElement.innerHTML = formatDate(currentTime);
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemperature);
   console.log(response.data);
@@ -66,13 +74,6 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-let dateElement = document.querySelector("#current-time");
-let currentTime = new Date();
-
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
-dateElement.innerHTML = formatDate(currentTime);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
